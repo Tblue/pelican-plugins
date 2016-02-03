@@ -1,10 +1,14 @@
 # -*- coding: utf-8 -*-
 
+import logging
 import os
 from pelican import signals, contents
 from pelican.utils import strftime, set_date_tzinfo
 from datetime import datetime
 from git_wrapper import git_wrapper
+
+
+logger = logging.getLogger(__name__)
 
 
 def datetime_from_timestamp(timestamp, content):
@@ -20,6 +24,7 @@ def datetime_from_timestamp(timestamp, content):
 
 def filetime_from_git(content):
     if isinstance(content, contents.Static):
+        logger.debug("Ignoring static content `%s'", content.source_path)
         return
 
     git = git_wrapper('.')
@@ -28,6 +33,7 @@ def filetime_from_git(content):
     gittime = content.metadata.get('gittime', 'yes').lower()
     gittime = gittime.replace("false", "no").replace("off", "no")
     if gittime == "no":
+        logger.debug("Plugin explicitly disabled for `%s'", content.source_path)
         return
 
     # 1. file is not managed by git
