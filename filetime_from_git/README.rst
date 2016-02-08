@@ -23,12 +23,19 @@ When this module is enabled, ``date`` and ``updated`` will be set automatically
 by git status, no need to manually set in article/page's metadata. And
 operations like copy, move will not affect the generated results.
 
+Settings
+--------
+
 If some article or page doesn't like to use git time, set a ``gittime: off``
 metadata to disable it.
 
 You can also set GIT_FILETIME_FOLLOW to True in your pelican config to 
 make the plugin follow file renames i.e. ensure the creation date matches
 the original file creation date, not the date is was renamed.
+
+If you have some articles which already have ``date`` or ``modified`` fields and you
+want to preserve them, then set ``GIT_FILETIME_ONLY_IF_MISSING`` to ``True`` in your
+Pelican config. By default, dates are always overwritten with those from Git.
 
 By default, the plugin ensures that articles which use "git time" always have a
 "Modified" date set, even if this date matches the creation date. If you only want
