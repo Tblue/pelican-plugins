@@ -36,6 +36,8 @@ Plugin descriptions
 ========================  ===========================================================
 Plugin                    Description
 ========================  ===========================================================
+Ace Editor                Replace default **<code>** by an Ace__ code editor with settings configure on pelicanconf.py.
+
 Always modified           Copy created date metadata into modified date for easy "latest updates" indexes
 
 AsciiDoc reader           Use AsciiDoc to write your posts.
@@ -51,6 +53,8 @@ Better code line numbers  Allow code blocks with line numbers to wrap
 Better code samples       Wraps ``table`` blocks with ``div > .hilitewrapper > .codehilitetable`` class attribute, allowing for scrollable code blocks.
 
 Better figures/samples    Adds a ``style="width: ???px; height: auto;"`` attribute to any ``<img>`` tags in the content
+
+bootstrap-rst             Provides most (though not all) of Bootstrap's features as rst directives
 
 bootstrapify              Automatically add bootstraps default classes to your content
 
@@ -249,8 +253,11 @@ txt2tags_reader           Reader that renders txt2tags markup in content
 Video Privacy Enhancer    Increases user privacy by stopping YouTube, Google, et al from placing cookies via embedded video
 
 W3C validate              Submits generated HTML content to the W3C Markup Validation Service
+
+Yuicompressor             Minify CSS and JS files on building step
 ========================  ===========================================================
 
+__ https://ace.c9.io
 
 Please refer to the ``Readme`` file in a plugin's folder for detailed information about
 that plugin.
